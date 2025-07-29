@@ -33,3 +33,5 @@ jobs:
 
   invocar_reusablewf:
     uses: DevOpstareas/reusableworflow/.github/workflows/rwf_t1.yml@main
+    with:
+      nombre: 'Nancy'
