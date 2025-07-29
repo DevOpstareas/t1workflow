@@ -1,8 +1,8 @@
 name: wf_pr
 on:
-  # push:
-  #   branches:
-  #     - release
+#  push:
+#    branches:
+#      - release
   workflow_dispatch:
     inputs:
       entorno:
@@ -17,6 +17,8 @@ on:
 jobs:
   entorno:
     runs-on: ubuntu-latest
+    permissions:
+      contents: read
     environment: ${{ github.event.inputs.entorno || 'dev' }}
     steps:
       - name: ejecucion_actions
