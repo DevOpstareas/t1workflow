@@ -15,18 +15,11 @@ on:
           - prod
 
 jobs:
-  entorno:
-    runs-on: ubuntu-latest
-    environment: ${{ github.event.inputs.entorno || 'dev' }}
-    steps:
-      - name: Imprimir mensaje
-        run: |
-          echo El entorno es ${{ vars.AMBIENTE }}
-
   ejecucion_actions:
     runs-on: ubuntu-latest
     permissions:
       contents: read
+    environment: ${{ github.event.inputs.entorno || 'dev' }}
     steps:
       - name: invocaraction
         uses: DevOpstareas/t1action@main
@@ -34,3 +27,6 @@ jobs:
             nombre: ${{ vars.NOMBRE }}
             apellido: ${{ vars.APELLIDO }}
             edad: ${{ vars.EDAD }}
+
+      - name: Imprimir mensaje
+        run: echo "El entorno es ${{ vars.AMBIENTE }}"
