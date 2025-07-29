@@ -2,7 +2,7 @@ name: wf_pr
 on:
   push:
     branches:
-      - realese
+      - release
   workflow_dispatch:
 
 jobs:
