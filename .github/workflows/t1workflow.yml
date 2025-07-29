@@ -1,8 +1,8 @@
 name: wf_pr
 on:
-#  push:
-#    branches:
-#      - release
+  # push:
+  #   branches:
+  #     - release
   workflow_dispatch:
     inputs:
       entorno:
@@ -16,7 +16,7 @@ on:
 
 jobs:
   entorno:
-      runs-on: ubuntu-latest
+    runs-on: ubuntu-latest
     environment: ${{ github.event.inputs.entorno || 'dev' }}
     steps:
       - name: ejecucion_actions
@@ -31,5 +31,5 @@ jobs:
 
   ejecucion_rwf:
     uses: DevOpstareas/reusableworflow/.github/workflows/rwf_t1.yml@main
-      with:
-        nombre: 'Nancy'
+    with:
+      nombre: 'Nancy'
