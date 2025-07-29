@@ -9,7 +9,8 @@ on:
 jobs:
   entorno:
     runs-on: ubuntu-latest
-    environment: ${{github.ref_name == 'develop' && 'dev' || github.ref_name == 'main' && 'prod'}}
+    environment: ${{github.ref_name == 'develop' && 'dev' || github.ref_name == 'release' && 'qa' }}
+    steps:}}
     steps:
       - name: Imprimir mensaje
         run: |
