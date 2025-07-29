@@ -1,13 +1,10 @@
 name: wf_pr
 on:
-#  push:
-#    branches:
-#      - release
   workflow_dispatch:
     inputs:
       entorno:
         required: true
-        default: "dev"
+        default: dev
         type: choice
         options:
           - dev
