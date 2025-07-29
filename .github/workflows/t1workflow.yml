@@ -1,10 +1,9 @@
 name: wf_pr
-
 on:
-  pull_request:
+  push:
     branches:
       - realese
-  workflow_dispatch:
+    workflow_dispatch:
 
 jobs:
   entorno:
@@ -23,6 +22,6 @@ jobs:
       - name: invocaraction
         uses: DevOpstareas/t1action@main
         with:
-            nombre:  ${{ vars.NOMBRE }}
-            apellido:  ${{ vars.APELLIDO }}
-            edad:  ${{ vars.EDAD }}
+            nombre: ${{ vars.NOMBRE }}
+            apellido: ${{ vars.APELLIDO }}
+            edad: ${{ vars.EDAD }}
