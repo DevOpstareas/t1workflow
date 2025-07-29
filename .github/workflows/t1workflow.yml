@@ -12,7 +12,7 @@ jobs:
     steps:
       - name: Imprimir mensaje
         run: |
-          echo "El entorno es ${{ vars.AMBIENTE }}"
+          echo El entorno es ${{ vars.AMBIENTE }}
 
   ejecucion_actions:
     runs-on: ubuntu-latest
