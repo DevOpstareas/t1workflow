@@ -21,6 +21,6 @@ jobs:
       contents: read
     steps:
       - name: invocaraction
-        uses: devops-nan/test_action@main
+        uses: DevOpstareas/t1action@main
         with:
             nombre:  ${{ vars.NOMBRE }}
