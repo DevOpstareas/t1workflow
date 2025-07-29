@@ -32,6 +32,6 @@ jobs:
         run: echo "El entorno es ${{ vars.AMBIENTE }}"
 
   invocarwf:
-    uses: DevOpstareas/reusableworflow/.github/workflows/rwf_t1.yml@main
+    uses: DevOpstareas/reusable_workflow/.github/workflows/rwf_t1.yml@main
     with:
       nombre: 'Nancy'
