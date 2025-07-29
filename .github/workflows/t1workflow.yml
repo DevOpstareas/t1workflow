@@ -3,13 +3,13 @@ name: wf_pr
 on:
   pull_request:
     branches:
-      - develop
+      - realese
   workflow_dispatch:
 
 jobs:
   entorno:
     runs-on: ubuntu-latest
-    environment: ${{github.ref_name == 'develop' && 'dev' || github.ref_name == 'main' && 'prod'}}
+    environment: ${{github.ref_name == 'develop' && 'dev' || github.ref_name == 'main' && 'prod' || github.ref_name == 'release' && 'qa' }}
     steps:
       - name: Imprimir mensaje
         run: |
@@ -24,3 +24,5 @@ jobs:
         uses: DevOpstareas/t1action@main
         with:
             nombre:  ${{ vars.NOMBRE }}
+            apellido:  ${{ vars.APELLIDO }}
+            edad:  ${{ vars.EDAD }}
