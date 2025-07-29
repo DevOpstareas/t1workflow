@@ -5,11 +5,22 @@ on:
     branches:
       - develop
   workflow_dispatch:
+
 jobs:
-  ejecucion_actions:
+  entorno:
     runs-on: ubuntu-latest
     environment: ${{github.ref_name == 'develop' && 'dev' || github.ref_name == 'main' && 'prod'}}
     steps:
       - name: Imprimir mensaje
         run: |
           echo "El entorno es ${{ vars.AMBIENTE }}"
+
+  ejecucion_actions:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+    steps:
+      - name: invocaraction
+        uses: devops-nan/test_action@main
+        with:
+            nombre:  ${{ vars.NOMBRE }}
