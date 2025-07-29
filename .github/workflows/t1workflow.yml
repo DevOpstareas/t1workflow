@@ -19,23 +19,17 @@ jobs:
       runs-on: ubuntu-latest
     environment: ${{ github.event.inputs.entorno || 'dev' }}
     steps:
-      - name: Imprimir mensaje
-        run: |
-          echo El entorno es ${{ vars.AMBIENTE }}
-
-  ejecucion_actions:
-    runs-on: ubuntu-latest
-    permissions:
-      contents: read
-    steps:
-      - name: invocaraction
+      - name: ejecucion_actions
         uses: DevOpstareas/t1action@main
         with:
-            nombre: ${{ vars.NOMBRE }}
-            apellido: ${{ vars.APELLIDO }}
-            edad: ${{ vars.EDAD }}
+          nombre: ${{ vars.NOMBRE }}
+          apellido: ${{ vars.APELLIDO }}
+          edad: ${{ vars.EDAD }}
 
-ejecucion_rwf:
-  uses: DevOpstareas/t1workflow/.github/workflows/t1workflow.yml@main 
-    with:
-      nombre: 'Nancy'
+      - name: Imprimir mensaje
+        run: echo "El entorno es ${{ vars.AMBIENTE }}"
+
+  ejecucion_rwf:
+    uses: DevOpstareas/reusableworflow/.github/workflows/rwf_t1.yml@main
+      with:
+        nombre: 'Nancy'
