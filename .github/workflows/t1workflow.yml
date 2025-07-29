@@ -3,7 +3,7 @@ on:
   push:
     branches:
       - realese
-    workflow_dispatch:
+  workflow_dispatch:
 
 jobs:
   entorno:
