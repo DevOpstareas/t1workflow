@@ -1,10 +1,10 @@
 name: wf_pr
-
 on:
-  pull_request:
+  push:
     branches:
       - realese
-  workflow_dispatch:
+    workflow_dispatch:
+
 
 jobs:
   entorno:
