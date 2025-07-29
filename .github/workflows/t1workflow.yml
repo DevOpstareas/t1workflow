@@ -12,4 +12,4 @@ jobs:
     steps:
       - name: Imprimir mensaje
         run: |
-          echo "El entorno es ${{ vars.ENTORNO }}"
+          echo "El entorno es ${{ vars.AMBIENTE }}"
