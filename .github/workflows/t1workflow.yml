@@ -17,13 +17,20 @@ jobs:
     permissions:
       contents: read
     environment: ${{ github.event.inputs.entorno || 'dev' }}
+    outputs: 
+      nombreVecino: "Jorge"
     steps:
       - name: invocaraction
+        id: actiontarea
         uses: DevOpstareas/t1action@main
-        with:
+        with: 
             nombre: ${{ vars.NOMBRE }}
             apellido: ${{ vars.APELLIDO }}
             edad: ${{ vars.EDAD }}
+      - name: Mostrar resultados
+        run: |
+          echo "La multiplicación de la edad es: ${{ steps.actiontarea.outputs.resultado }}" 
+      
 
       - name: Imprimir mensaje
         run: echo "El entorno es ${{ vars.AMBIENTE }}"
@@ -32,3 +39,12 @@ jobs:
     uses: DevOpstareas/reusable_workflow/.github/workflows/rwf_t1.yml@main
     with:
       nombre: 'Nancy'
+
+  job_outpts:
+    runs-on: ubuntu-latest
+    needs: ejecucion_actions
+    steps:
+      - name: Imprimir output del job ejecucion_actions
+        run: echo "El nombre del vecino es ${{ needs.ejecucion_actions.outputs.nombreVecino }}"
+
+      
